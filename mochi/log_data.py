@@ -296,17 +296,14 @@ def generate_bandit_feedback_splits(user_records, user_list, remark=None):
 
 def generate_train_val_test_feedback(user_records):
     user_list = np.array(list(user_records.keys()))
-    print(len(user_list))
     indices = [i for i in range(len(user_list))]
     splits = train_test_split(indices, test_size=0.5, shuffle=True)
-    print(splits)
-    train_test_indices, test_indices = splits
-    splits = train_test_split(train_test_indices, test_size=0.5, shuffle=True)
+    train_val_indices, test_indices = splits
+    splits = train_test_split(train_val_indices, test_size=0.5, shuffle=True)
     train_indices, val_indices = splits
     train_users = user_list[train_indices]
     test_users = user_list[test_indices]
     val_users = user_list[val_indices]
-
     # train_next_q_dist = generate_problem_seq(user_records, train_users)
     # val_next_q_dist = generate_problem_seq(user_records, val_users)
     # test_next_q_dist = generate_problem_seq(user_records, test_users)
