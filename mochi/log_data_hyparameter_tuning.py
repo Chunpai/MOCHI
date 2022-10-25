@@ -1,3 +1,5 @@
+# Check the max importance weight when increasing the num_data
+
 import pickle
 from sklearn.model_selection import train_test_split, KFold
 import random
@@ -253,7 +255,7 @@ def generate_bandit_feedback_splits(user_records, user_list, remark=None):
 
             if len(next_q_dist[curr_q]) == 0:
                 a_i = problem_name_id_mapping[problem_seq[0]]
-                propensity = 0.000001
+                propensity = 1.
             else:
                 sorted_items = sorted(next_q_dist[curr_q].items(), key=lambda x: x[1], reverse=True)
                 a_i = problem_name_id_mapping[sorted_items[0][0]]
@@ -297,7 +299,7 @@ def generate_bandit_feedback_splits(user_records, user_list, remark=None):
 def generate_train_val_test_feedback(user_records):
     user_list = np.array(list(user_records.keys()))
     indices = [i for i in range(len(user_list))]
-    splits = train_test_split(indices, test_size=0.5, shuffle=True)
+    splits = train_test_split(indices, test_size=0.4, shuffle=True)
     train_val_indices, test_indices = splits
     splits = train_test_split(train_val_indices, test_size=0.5, shuffle=True)
     train_indices, val_indices = splits

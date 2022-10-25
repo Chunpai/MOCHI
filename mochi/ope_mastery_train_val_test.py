@@ -34,7 +34,7 @@ from obp.ope import (
 
 ## configurations
 num_runs = 100
-num_data_list = [100, 200, 400, 800, 1600, 3200]
+num_data_list = [100, 200, 400, 800, 1600, 2400] 
 
 ## define a dataset class
 train_data = pickle.load(open("../data/MasteryGrids/train_bandit_feedback.pkl", "rb"))
@@ -86,7 +86,7 @@ ipw_learner.fit(
     # pscore=train_pscore,
 )
 
-# predict best action (based on action distribution) on new data (new context)
+# get action distribution on new data (new context)
 # shape is (n_rounds, n_actions, 1)
 action_dist_ipw_test = ipw_learner.predict(
     context=test_context,
@@ -98,6 +98,7 @@ action_dist_ipw_test = ipw_learner.predict(
 # expected reward is computed based on:
 #   1. under each context, for each action we aggregate number of clicks or non-clicks
 #   2. the ratio of click / (click+ nonclick) is the expected reward
+# TODO: for different (evaluation) policy, test_expected_rewards are different!!!
 policy_value_of_ipw = np.average(test_expected_reward, weights=action_dist_ipw_test[:, :, 0],
                                  axis=1).mean()
 
@@ -171,6 +172,7 @@ for num_data in num_data_list:
             metric="se",  # squared error
         )
         se_list.append(squared_errors)
+        print("current_square errors: {}".format(se_list))
     ## maximum importance weight in the validation data
     ### a larger value indicates that the logging and evaluation policies are greatly different
     max_iw = (action_dist_ipw_val[
@@ -186,7 +188,7 @@ for num_data in num_data_list:
     se_df["num_data"] = num_data
     se_df_list.append(se_df)
     tqdm.write("=====" * 15)
-    time.sleep(0.5)
+    time.sleep(0.05)
 
 # aggregate all results
 result_df = pd.concat(se_df_list).reset_index(level=0)
@@ -212,8 +214,9 @@ ax.legend(
     loc="upper right", fontsize=25,
 )
 # yaxis
-ax.set_yscale("log")
-ax.set_ylim(3e-2, 0.55)
+# ax.set_yscale("log")
+ax.set_yscale("linear")
+ax.set_ylim(0., 0.5)
 ax.set_ylabel("mean squared error (MSE)", fontsize=25)
 ax.tick_params(axis="y", labelsize=15)
 ax.yaxis.set_label_coords(-0.1, 0.5)
@@ -225,36 +228,36 @@ ax.set_xticklabels(xlabels, fontsize=15)
 ax.xaxis.set_label_coords(0.5, -0.1)
 plt.show()
 
-plt.clf()
-xlabels = [100, 800, 1600, 3200]
+# plt.clf()
+# xlabels = [100, 800, 1600, 3200]
 
-plt.style.use('ggplot')
-fig, ax = plt.subplots(figsize=(10, 7), tight_layout=True)
-sns.lineplot(
-    linewidth=5,
-    dashes=False,
-    legend=False,
-    x="num_data",
-    y="se",
-    hue="est",
-    ax=ax,
-    data=result_df,
-)
-# title and legend
-ax.legend(
-    ["DRos (1)", "DRos (100)", "DRos (10000)", "DRos (tuning)"],
-    loc="upper right", fontsize=22,
-)
-# yaxis
-ax.set_yscale("log")
-ax.set_ylim(3e-2, 0.55)
-ax.set_ylabel("mean squared error (MSE)", fontsize=25)
-ax.tick_params(axis="y", labelsize=15)
-ax.yaxis.set_label_coords(-0.1, 0.5)
-# xaxis
-# ax.set_xscale("log")
-ax.set_xlabel("number of samples in the log data", fontsize=25)
-ax.set_xticks(xlabels)
-ax.set_xticklabels(xlabels, fontsize=15)
-ax.xaxis.set_label_coords(0.5, -0.1)
-plt.show()
+# plt.style.use('ggplot')
+# fig, ax = plt.subplots(figsize=(10, 7), tight_layout=True)
+# sns.lineplot(
+#     linewidth=5,
+#     dashes=False,
+#     legend=False,
+#     x="num_data",
+#     y="se",
+#     hue="est",
+#     ax=ax,
+#     data=result_df,
+# )
+# # title and legend
+# ax.legend(
+#     ["DRos (1)", "DRos (100)", "DRos (10000)", "DRos (tuning)"],
+#     loc="upper right", fontsize=22,
+# )
+# # yaxis
+# ax.set_yscale("log")
+# ax.set_ylim(3e-2, 0.55)
+# ax.set_ylabel("mean squared error (MSE)", fontsize=25)
+# ax.tick_params(axis="y", labelsize=15)
+# ax.yaxis.set_label_coords(-0.1, 0.5)
+# # xaxis
+# # ax.set_xscale("log")
+# ax.set_xlabel("number of samples in the log data", fontsize=25)
+# ax.set_xticks(xlabels)
+# ax.set_xticklabels(xlabels, fontsize=15)
+# ax.xaxis.set_label_coords(0.5, -0.1)
+# plt.show()

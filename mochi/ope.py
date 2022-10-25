@@ -46,6 +46,7 @@ dataset = SyntheticBanditDataset(
 # given each context
 train_bandit_data = dataset.obtain_batch_bandit_feedback(n_rounds=5000)
 print(train_bandit_data.keys())
+print("position", train_bandit_data["position"])
 print("action", train_bandit_data["action"])
 print("context", train_bandit_data["context"].shape)
 print("action", train_bandit_data["action"].shape)
