@@ -11,6 +11,9 @@ from mochi.utils import *
 from scipy.stats import spearmanr
 
 
+# Reward Estimation with IPW-DCH
+
+
 def eval_policy(policy_name, top_k, users, items, user_records, pretest_posttest_dict,
                 next_item_distr_dict):
     traj_dch_list = []

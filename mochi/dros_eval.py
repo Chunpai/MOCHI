@@ -1,6 +1,9 @@
 __author__ = "Chunpai W."
 __email__ = "cwang25@albany.edu"
 
+
+# Reward Estimation with DRos
+
 import pickle
 import random
 
