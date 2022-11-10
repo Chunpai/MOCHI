@@ -140,7 +140,6 @@ def generate_bandit_feedback(user_records):
     pickle.dump(data, open("../data/MasteryGrids/all_logged_bandit_feedback.pkl", "wb"))
 
 
-
 def generate_problem_seq(user_records):
     first_questions = {}
     next_q_dist = {}
@@ -168,8 +167,6 @@ def generate_problem_seq(user_records):
     return next_q_dist
 
 
-
-
 def generate_random_feedback(user_records):
     problem_topic_mapping = pickle.load(
         open("../data/MasteryGrids/problem_kc_mapping.pkl", "rb"))
@@ -182,14 +179,19 @@ def generate_random_feedback(user_records):
     n_actions = len(problem_seq)
     data["n_actions"] = n_actions
 
+    user_index_dict = {}
     context = []
     action = []
     reward = []
     user_list = list(user_records.keys())
+    print(user_list)
     for user in user_list:
+        if user not in user_index_dict:
+            user_index_dict[user] = []
         questions = user_records[user]
         size = len(questions)
         for i in range(size - 1):
+            user_index_dict[user].append(len(context))  # map user to a list of context index
             curr_q = questions[i]
             next_q = questions[i + 1]
             x_i = problem_name_id_mapping[curr_q]
@@ -210,10 +212,10 @@ def generate_random_feedback(user_records):
     data["action"] = np.array(action)
     data["reward"] = np.array(reward)
     data["position"] = np.array(len(action) * [0])
-    data["pscore"] = np.array(len(action) * (1. / n_actions ))
+    data["pscore"] = np.array(len(action) * [1. / n_actions])
+    data["user_index_dict"] = user_index_dict
 
     pickle.dump(data, open("../data/MasteryGrids/random_bandit_feedback.pkl", "wb"))
-
 
 
 def generate_instruct_seq_feedback(user_records):
@@ -228,6 +230,7 @@ def generate_instruct_seq_feedback(user_records):
     n_actions = len(problem_seq)
     data["n_actions"] = n_actions
 
+    user_index_dict = {}
     context = []
     action = []
     reward = []
@@ -235,7 +238,10 @@ def generate_instruct_seq_feedback(user_records):
     for user in user_list:
         questions = user_records[user]
         size = len(questions)
+        if user not in user_index_dict:
+            user_index_dict[user] = []
         for i in range(size - 1):
+            user_index_dict[user].append(len(context))  # map user to a list of context index
             curr_q = questions[i]
             next_q = questions[i + 1]
             x_i = problem_name_id_mapping[curr_q]
@@ -259,8 +265,63 @@ def generate_instruct_seq_feedback(user_records):
     data["action"] = np.array(action)
     data["reward"] = np.array(reward)
     data["position"] = np.array(len(action) * [0])
+    data["pscore"] = np.array(len(action) * [1. / n_actions])
+    data["user_index_dict"] = user_index_dict
 
     pickle.dump(data, open("../data/MasteryGrids/instruct_seq_bandit_feedback.pkl", "wb"))
+
+
+def generate_inv_instruct_seq_feedback(user_records):
+    problem_topic_mapping = pickle.load(
+        open("../data/MasteryGrids/problem_kc_mapping.pkl", "rb"))
+    problem_seq = generate_instructional_sequence(problem_topic_mapping)
+
+    problem_name_id_mapping = {}
+    for i, name in enumerate(problem_seq):
+        problem_name_id_mapping[name] = i
+    data = {}
+    n_actions = len(problem_seq)
+    data["n_actions"] = n_actions
+
+    user_index_dict = {}
+    context = []
+    action = []
+    reward = []
+    user_list = list(user_records.keys())
+    for user in user_list:
+        questions = user_records[user]
+        size = len(questions)
+        if user not in user_index_dict:
+            user_index_dict[user] = []
+        for i in range(size - 1):
+            user_index_dict[user].append(len(context))  # map user to a list of context index
+            curr_q = questions[i]
+            next_q = questions[i + 1]
+            x_i = problem_name_id_mapping[curr_q]
+            context.append([x_i])
+            x_j = problem_name_id_mapping[next_q]
+
+            index = problem_seq.index(curr_q)
+            if index - 1 != -1:
+                a_i = problem_name_id_mapping[problem_seq[index - 1]]
+            else:
+                a_i = problem_name_id_mapping[problem_seq[-1]]
+
+            action.append(a_i)
+            if x_j == a_i:
+                r = 1
+            else:
+                r = 0
+            reward.append(r)
+    data["n_rounds"] = len(action)
+    data["context"] = np.array(context)
+    data["action"] = np.array(action)
+    data["reward"] = np.array(reward)
+    data["position"] = np.array(len(action) * [0])
+    data["pscore"] = np.array(len(action) * [1. / n_actions])
+    data["user_index_dict"] = user_index_dict
+
+    pickle.dump(data, open("../data/MasteryGrids/inv_instruct_seq_bandit_feedback.pkl", "wb"))
 
 
 if __name__ == '__main__':
@@ -269,3 +330,4 @@ if __name__ == '__main__':
     generate_bandit_feedback(user_records)
     generate_random_feedback(user_records)
     generate_instruct_seq_feedback(user_records)
+    generate_inv_instruct_seq_feedback(user_records)

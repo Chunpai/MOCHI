@@ -9,12 +9,13 @@ from numpy.random import RandomState
 
 from mochi.utils import *
 from scipy.stats import spearmanr
-
+from mochi.bkt import getYudelsonModel, compute_bkt_last_belief
+from mochi.bkt import BKTModel
 
 # Reward Estimation with IPW-DCH
 
 
-def eval_policy(policy_name, top_k, users, items, user_records, pretest_posttest_dict,
+def eval_policy(plan_model, policy_name, top_k, users, items, user_records, pretest_posttest_dict,
                 next_item_distr_dict):
     traj_dch_list = []
     traj_ipw_dch_list = []
@@ -37,7 +38,8 @@ def eval_policy(policy_name, top_k, users, items, user_records, pretest_posttest
             if policy_name == "random":
                 candidates = random.sample(items, top_k)
             else:
-                raise NotImplementedError
+                candidates = plan_model.plan(policy)
+                question = candidates[0]
 
             if t + 1 < len(user_q_list):
                 current_q = user_q_list[t]
