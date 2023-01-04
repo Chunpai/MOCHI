@@ -246,11 +246,12 @@ class BKTModel():
         return o
 
     def plan(self, policy):
-        action = self.policies[policy](self.problemList)
+        action, action_dist = self.policies[policy](self.problemList)
         self.actions[-1].append(action)
         self.rewards[-1].append(0)
         # self.problemList.remove(action)
-        return action
+        # return action
+        return action_dist
 
     def updateReward(self):
         if self.rewardModel != None:
@@ -288,15 +289,23 @@ class BKTModel():
 
     def mastery_policy(self, problemList):
         scores = {}
-        for problem in problemList:
+        action_dist = [[0.0] for _ in problemList]
+        for index, problem in enumerate(problemList):
             scores[problem] = 0.0
             topic = self.problem_topic_mapping[problem]
             kc = self.kcMap[topic]
             # print(problem, self.curr_bel[kc, 1])
             if self.curr_bel[kc, 1] < self.mastery_thresh:
                 scores[problem] += self.mastery_thresh - self.curr_bel[kc, 1]
+                action_dist[index][0] += self.mastery_thresh - self.curr_bel[kc, 1]
         sorted_scores = sorted(scores.keys(), key=lambda x: scores[x])
-        return sorted_scores[-self.top_k:][::-1]
+        total = np.sum(action_dist)
+        if total == 0:
+            action_dist = [[1. / len(problemList)] for _ in range(len(problemList))]
+        else:
+            for prob_id in range(len(action_dist)):
+                action_dist[prob_id][0] = action_dist[prob_id][0] / total
+        return sorted_scores[-self.top_k:][::-1], action_dist
 
     def random_policy(self, problemList):
         # return np.random.choice(problemList)
@@ -304,7 +313,8 @@ class BKTModel():
 
     def highest_prob_correct_policy(self, problemList):
         scores = {}
-        for problem in problemList:
+        action_dist = [[0.0] for _ in problemList]
+        for index, problem in enumerate(problemList):
             scores[problem] = 0.0
             topic = self.problem_topic_mapping[problem]
             kc = self.kcMap[topic]
@@ -312,18 +322,27 @@ class BKTModel():
             # compute the prob of correctness
             # (curr mastery belief * 1 + unmastery belief * prob. mastery) * non-slip correct obs +
             # (curr unmastery belief * unmastery transition + curr. mastery * 0) * guess correct obs
-            scores[problem] = (
+            sc = (
                     (self.curr_bel[kc, 1] * self.T[kc, 1, 1] + self.curr_bel[kc, 0] * self.T[
                         kc, 0, 1]) * self.O[kc, 1, 1] + (
                             self.curr_bel[kc, 0] * self.T[kc, 0, 0] + self.curr_bel[kc, 1] *
                             self.T[kc, 1, 0]) * self.O[kc, 0, 1]
             )
+            scores[problem] = sc
+            action_dist[index][0] = sc
+        total = np.sum(action_dist)
+        if total == 0:
+            action_dist = [[1. / len(problemList)] for _ in range(len(problemList))]
+        else:
+            for prob_id in range(len(action_dist)):
+                action_dist[prob_id][0] = action_dist[prob_id][0] / total
         sorted_scores = sorted(scores.keys(), key=lambda x: scores[x])
-        return sorted_scores[-self.top_k:][::-1]
+        return sorted_scores[-self.top_k:][::-1], action_dist
 
     def myopic_policy(self, problemList, num_samples=20):
         scores = {}
-        for problem in problemList:
+        action_dist = [[0.0] for _ in problemList]
+        for index, problem in enumerate(problemList):
             scores[problem] = 0.0
             for sample in range(num_samples):
                 topic = self.problem_topic_mapping[problem]
@@ -332,6 +351,15 @@ class BKTModel():
                 tmp_bel = self.updateBelief(o, update=False)
                 tmp_X = np.append([self.pretests[-1]], tmp_bel[:, 1]).reshape(1, -1)
                 scores[problem] += self.rewardModel.predict(tmp_X)[-1]
+                action_dist[index][0] += self.rewardModel.predict(tmp_X)[-1]
             scores[problem] /= num_samples
+            action_dist[index][0] /= num_samples
+
+        total = np.sum(action_dist)
+        if total == 0:
+            action_dist = [[1. / len(problemList)] for _ in range(len(problemList))]
+        else:
+            for prob_id in range(len(action_dist)):
+                action_dist[prob_id][0] = action_dist[prob_id][0] / total
         sorted_scores = sorted(scores.keys(), key=lambda x: scores[x])
-        return sorted_scores[-self.top_k:][::-1]
+        return sorted_scores[-self.top_k:][::-1], action_dist

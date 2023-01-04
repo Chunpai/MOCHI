@@ -17,7 +17,7 @@ class MasteryGridsDataLoader(BaseDataLoader):
         self.data_name = config["data_name"]
         data_path = f"../data/MasteryGrids/{self.data_name}.pkl"
         data = pickle.load(open(data_path, "rb"))
-        self.num_items = data["num_items"]
+        self.num_items = data["num_questions"]
         self.num_users = data["num_users"]
         print("num users: {}".format(self.num_users))
         print("num items: {}".format(self.num_items))

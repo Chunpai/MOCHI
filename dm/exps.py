@@ -161,6 +161,7 @@ def test_5folds(model, data, best_config):
         best_config["data_name"] = "{}_fold_{}".format(data, fold)
         exp_name = "{}_{}_fold_{}".format(model, data, fold)
         best_config["exp_name"] = exp_name
+        best_config["fold"] = fold
         for key in best_config:
             print("{}: {}".format(key, best_config[key]))
         config_file_path = "{}/{}.json".format(config_dir, exp_name)

@@ -1,10 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff2f8b4-eb23-4bba-9063-0c418e957a57" name="Changes" comment="remove pax data">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="fff2f8b4-eb23-4bba-9063-0c418e957a57" name="Changes" comment="git ignore update">
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/highest_prob_correct.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/highest_prob_correct_estimated_round_reward.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/instruct_seq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/instruct_seq_estimated_round_reward.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/inv_instruct_seq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/inv_instruct_seq_estimated_round_reward.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/mastery.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/mastery_estimated_round_reward.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/random.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mochi/outputs/random_estimated_round_reward.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mochi/log_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/mochi/log_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MasteryGrids/MasteryGrids.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MasteryGrids/MasteryGrids_fold_1.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MasteryGrids/MasteryGrids_fold_2.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MasteryGrids/MasteryGrids_fold_3.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MasteryGrids/MasteryGrids_fold_4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MasteryGrids/MasteryGrids_fold_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MasteryGrids/bkt_input_fold_1_model.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MasteryGrids/myopic_bandit_feedback.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/MasteryGrids/myopic_bandit_feedback.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/agents/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/dm/agents/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/agents/dkt.py" beforeDir="false" afterPath="$PROJECT_DIR$/dm/agents/dkt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/dm/configs/5folds/DKT/MasteryGrids/DKT_MasteryGrids_fold_5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/dataloaders/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/dm/dataloaders/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/dataloaders/masterygrids.py" beforeDir="false" afterPath="$PROJECT_DIR$/dm/dataloaders/masterygrids.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/datasets/dkt.py" beforeDir="false" afterPath="$PROJECT_DIR$/dm/datasets/dkt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/5folds_MasteryGrids.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/5folds_MasteryGrids.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_1/DKT_MasteryGrids_fold_1/checkpoints/checkpoint.pth.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_1/DKT_MasteryGrids_fold_1/checkpoints/checkpoint.pth.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_1/DKT_MasteryGrids_fold_1/logs/exp_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_1/DKT_MasteryGrids_fold_1/logs/exp_debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_1/DKT_MasteryGrids_fold_1/out/pred_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_1/DKT_MasteryGrids_fold_1/out/pred_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_1/DKT_MasteryGrids_fold_1/out/true_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_1/DKT_MasteryGrids_fold_1/out/true_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_2/DKT_MasteryGrids_fold_2/checkpoints/checkpoint.pth.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_2/DKT_MasteryGrids_fold_2/checkpoints/checkpoint.pth.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_2/DKT_MasteryGrids_fold_2/logs/exp_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_2/DKT_MasteryGrids_fold_2/logs/exp_debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_2/DKT_MasteryGrids_fold_2/out/pred_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_2/DKT_MasteryGrids_fold_2/out/pred_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_2/DKT_MasteryGrids_fold_2/out/true_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_2/DKT_MasteryGrids_fold_2/out/true_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_3/DKT_MasteryGrids_fold_3/checkpoints/checkpoint.pth.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_3/DKT_MasteryGrids_fold_3/checkpoints/checkpoint.pth.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_3/DKT_MasteryGrids_fold_3/logs/exp_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_3/DKT_MasteryGrids_fold_3/logs/exp_debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_3/DKT_MasteryGrids_fold_3/out/pred_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_3/DKT_MasteryGrids_fold_3/out/pred_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_3/DKT_MasteryGrids_fold_3/out/true_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_3/DKT_MasteryGrids_fold_3/out/true_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_4/DKT_MasteryGrids_fold_4/checkpoints/checkpoint.pth.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_4/DKT_MasteryGrids_fold_4/checkpoints/checkpoint.pth.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_4/DKT_MasteryGrids_fold_4/logs/exp_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_4/DKT_MasteryGrids_fold_4/logs/exp_debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_4/DKT_MasteryGrids_fold_4/out/pred_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_4/DKT_MasteryGrids_fold_4/out/pred_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_4/DKT_MasteryGrids_fold_4/out/true_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_4/DKT_MasteryGrids_fold_4/out/true_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_5/DKT_MasteryGrids_fold_5/checkpoints/checkpoint.pth.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_5/DKT_MasteryGrids_fold_5/checkpoints/checkpoint.pth.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_5/DKT_MasteryGrids_fold_5/logs/exp_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_5/DKT_MasteryGrids_fold_5/logs/exp_debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_5/DKT_MasteryGrids_fold_5/out/pred_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_5/DKT_MasteryGrids_fold_5/out/pred_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_5/DKT_MasteryGrids_fold_5/out/true_labels.tar" beforeDir="false" afterPath="$PROJECT_DIR$/dm/experiments/DKTAgent/MasteryGrids_fold_5/DKT_MasteryGrids_fold_5/out/true_labels.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dm/exps.py" beforeDir="false" afterPath="$PROJECT_DIR$/dm/exps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/bkt.py" beforeDir="false" afterPath="$PROJECT_DIR$/mochi/bkt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/bkt_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/mochi/get_bkt_bandit_feedback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/dros_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/mochi/dros_eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/highest_prob_correct.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/highest_prob_correct_estimated_round_reward.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/instruct_seq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/instruct_seq_estimated_round_reward.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/inv_instruct_seq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/inv_instruct_seq_estimated_round_reward.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/log_eval_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/mastery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/mastery_estimated_round_reward.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/random.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/random_estimated_round_reward.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mochi/rewards.py" beforeDir="false" afterPath="$PROJECT_DIR$/mochi/rewards.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,23 +105,30 @@
     &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/chunpai/PycharmProjects/MOCHI/mochi&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;last_opened_file_path&quot;: &quot;/home/chunpai/PycharmProjects/MOCHI/data/MasteryGrids&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mochi" />
       <recent name="$PROJECT_DIR$/data/MasteryGrids" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/mochi" />
       <recent name="$PROJECT_DIR$/dm/dataloaders" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mochi" />
+      <recent name="$PROJECT_DIR$/data/MasteryGrids" />
+      <recent name="$PROJECT_DIR$/mochi/outputs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ope_mastery_train_val_test">
-    <configuration name="log_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.dros_eval">
+    <configuration name="dros_eval" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="MOCHI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -68,7 +141,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mochi/log_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mochi/dros_eval.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -77,7 +150,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ope" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="generate_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOCHI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -85,12 +158,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mochi" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/MasteryGrids" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mochi/ope.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/MasteryGrids/generate_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,7 +172,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ope_mastery" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="get_bkt_bandit_feedback" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="MOCHI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,7 +185,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mochi/ope_mastery.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mochi/get_bkt_bandit_feedback.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,7 +194,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ope_mastery_train_val_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="regression_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MOCHI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -129,12 +202,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mochi" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/snap/anaconda3/envs/mochi/lib/python3.8/site-packages/obp/ope" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mochi/ope_mastery_train_val_test.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/snap/anaconda3/envs/mochi/lib/python3.8/site-packages/obp/ope/regression_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,13 +238,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.run_dkt_exps" />
+      <item itemvalue="Python.generate_data" />
+      <item itemvalue="Python.dros_eval" />
+      <item itemvalue="Python.get_bkt_bandit_feedback" />
+      <item itemvalue="Python.regression_model" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ope_mastery_train_val_test" />
-        <item itemvalue="Python.log_data" />
-        <item itemvalue="Python.ope" />
-        <item itemvalue="Python.ope_mastery" />
+        <item itemvalue="Python.dros_eval" />
         <item itemvalue="Python.run_dkt_exps" />
+        <item itemvalue="Python.generate_data" />
+        <item itemvalue="Python.get_bkt_bandit_feedback" />
+        <item itemvalue="Python.regression_model" />
       </list>
     </recent_temporary>
   </component>
@@ -231,6 +311,26 @@
       <workItem from="1666377091534" duration="1284000" />
       <workItem from="1666455497246" duration="787000" />
       <workItem from="1666669001930" duration="1939000" />
+      <workItem from="1666928416968" duration="4717000" />
+      <workItem from="1666958049644" duration="7984000" />
+      <workItem from="1667131725697" duration="1803000" />
+      <workItem from="1667741115016" duration="626000" />
+      <workItem from="1667784370913" duration="18447000" />
+      <workItem from="1667855296483" duration="9761000" />
+      <workItem from="1668067481691" duration="10246000" />
+      <workItem from="1668377579063" duration="12855000" />
+      <workItem from="1668444477716" duration="27042000" />
+      <workItem from="1668650803124" duration="22480000" />
+      <workItem from="1668801717552" duration="7720000" />
+      <workItem from="1668894623603" duration="18725000" />
+      <workItem from="1670518606770" duration="13056000" />
+      <workItem from="1670573315580" duration="1712000" />
+      <workItem from="1670598687581" duration="19350000" />
+      <workItem from="1670687220529" duration="9505000" />
+      <workItem from="1670769888550" duration="4809000" />
+      <workItem from="1670776641553" duration="8550000" />
+      <workItem from="1670905752276" duration="616000" />
+      <workItem from="1670964436846" duration="4934000" />
     </task>
     <task id="LOCAL-00001" summary="MOCHI on MasteryGrids dataset">
       <created>1637214018023</created>
@@ -309,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664868212874</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="git ignore update">
+      <created>1668069279336</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668069279336</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,34 +442,20 @@
     <MESSAGE value="new processed data" />
     <MESSAGE value="add gitignore" />
     <MESSAGE value="remove pax data" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove pax data" />
+    <MESSAGE value="git ignore update" />
+    <option name="LAST_COMMIT_MESSAGE" value="git ignore update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mochi/dr_eval.py</url>
-          <line>134</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mochi/ope.py</url>
-          <line>92</line>
+          <line>93</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mochi/log_data.py</url>
-          <line>205</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mochi/log_data.py</url>
-          <line>183</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mochi/ope.py</url>
-          <line>82</line>
+          <line>83</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -372,7 +465,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mochi/ope.py</url>
-          <line>57</line>
+          <line>58</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -386,9 +479,79 @@
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mochi/log_data.py</url>
-          <line>312</line>
-          <option name="timeStamp" value="28" />
+          <url>file://$USER_HOME$/snap/anaconda3/envs/mochi/lib/python3.8/site-packages/obp/ope/estimators.py</url>
+          <line>337</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/snap/anaconda3/envs/mochi/lib/python3.8/site-packages/obp/ope/regression_model.py</url>
+          <line>375</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/snap/anaconda3/envs/mochi/lib/python3.8/site-packages/obp/ope/estimators.py</url>
+          <line>664</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mochi/dros_eval.py</url>
+          <line>137</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/snap/anaconda3/envs/mochi/lib/python3.8/site-packages/obp/ope/estimators.py</url>
+          <line>657</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mochi/get_bkt_bandit_feedback.py</url>
+          <line>208</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mochi/get_bkt_bandit_feedback.py</url>
+          <line>168</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/deepkt/agents/dkm.py</url>
+          <line>263</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/data/MasteryGrids/generate_data.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/data/MasteryGrids/generate_data.py</url>
+          <line>118</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/data/MasteryGrids/generate_data.py</url>
+          <line>160</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/deepkt/dataloaders/masterygrids.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/data/MasteryGrids/generate_data.py</url>
+          <line>109</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mochi/dros_eval.py</url>
+          <line>123</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mochi/dros_eval.py</url>
+          <line>109</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -401,13 +564,20 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MOCHI$ope.coverage" NAME="ope Coverage Results" MODIFIED="1663399347510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
-    <SUITE FILE_PATH="coverage/MOCHI$reward.coverage" NAME="log_data Coverage Results" MODIFIED="1649262878595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
-    <SUITE FILE_PATH="coverage/MOCHI$ope_mastery_train_val_test.coverage" NAME="ope_mastery_train_val_test Coverage Results" MODIFIED="1666357624987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
-    <SUITE FILE_PATH="coverage/MOCHI$log_data.coverage" NAME="log_data Coverage Results" MODIFIED="1663404198770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
-    <SUITE FILE_PATH="coverage/MOCHI$ope_mastery.coverage" NAME="ope_mastery Coverage Results" MODIFIED="1663348047838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
-    <SUITE FILE_PATH="coverage/MOCHI$eval.coverage" NAME="eval Coverage Results" MODIFIED="1649225703832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
     <SUITE FILE_PATH="coverage/MOCHI$dr_eval.coverage" NAME="dr_eval Coverage Results" MODIFIED="1649229314178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
-    <SUITE FILE_PATH="coverage/MOCHI$run_dkt_exps.coverage" NAME="run_dkt_exps Coverage Results" MODIFIED="1649265868821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dm" />
+    <SUITE FILE_PATH="coverage/MOCHI$ope.coverage" NAME="ope Coverage Results" MODIFIED="1663399347510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$log_data.coverage" NAME="log_data Coverage Results" MODIFIED="1666677174760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$eval.coverage" NAME="eval Coverage Results" MODIFIED="1649225703832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$generate_data.coverage" NAME="generate_data Coverage Results" MODIFIED="1670626070506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/MasteryGrids" />
+    <SUITE FILE_PATH="coverage/MOCHI$run_dkt_exps.coverage" NAME="run_dkt_exps Coverage Results" MODIFIED="1670781997597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dm" />
+    <SUITE FILE_PATH="coverage/MOCHI$log_eval_data.coverage" NAME="log_eval_data Coverage Results" MODIFIED="1667884054293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$ope_mastery.coverage" NAME="ope_mastery Coverage Results" MODIFIED="1663348047838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$regression_model.coverage" NAME="regression_model Coverage Results" MODIFIED="1668511255146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/snap/anaconda3/envs/mochi/lib/python3.8/site-packages/obp/ope" />
+    <SUITE FILE_PATH="coverage/MOCHI$reward.coverage" NAME="log_data Coverage Results" MODIFIED="1649262878595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$get_bkt_bandit_feedback.coverage" NAME="get_bkt_bandit_feedback Coverage Results" MODIFIED="1668910038891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$ope_mastery_train_val_test.coverage" NAME="ope_mastery_train_val_test Coverage Results" MODIFIED="1666677178839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$bkt_eval.coverage" NAME="bkt_eval Coverage Results" MODIFIED="1668068261888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$dros_eval.coverage" NAME="dros_eval Coverage Results" MODIFIED="1670968306561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
+    <SUITE FILE_PATH="coverage/MOCHI$bkt_bandit_feedback.coverage" NAME="bkt_bandit_feedback Coverage Results" MODIFIED="1668478746187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mochi" />
   </component>
 </project>

@@ -9,7 +9,6 @@ from sklearn import metrics
 import pickle
 import torch.nn as nn
 
-from tensorboardX.writer import SummaryWriter
 from dm.utils.metrics import AverageMeter, AverageMeterList
 
 

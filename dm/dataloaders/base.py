@@ -49,8 +49,12 @@ class BaseDataLoader:
                           "DKVMN_Distill_IRTAgent", "DKMAgent"]:
             q_records = data["train"]["q_data"]
             a_records = data["train"]["a_data"]
+            rec_q_records = data["train"]["rec_next_q_data"]
+            rec_r_records = data["train"]["rec_reward_data"]
+            train_users = data["train"]["users"]
             if self.agent == "DKTAgent":
-                self.train_data = DKTDataset(q_records, a_records, self.num_items,
+                self.train_data = DKTDataset(q_records, a_records, rec_q_records,
+                                             rec_r_records, train_users, self.num_items,
                                              self.max_seq_len,
                                              min_seq_len=self.min_seq_len,
                                              stride=self.stride,
@@ -76,14 +80,19 @@ class BaseDataLoader:
 
                 q_records = data["test"]["q_data"]
                 a_records = data["test"]["a_data"]
+                rec_q_records = data["test"]["rec_next_q_data"]
+                rec_r_records = data["test"]["rec_reward_data"]
+                test_users = data["test"]["users"]
                 if self.agent == "DKTAgent":
-                    self.test_data = DKTDataset(q_records, a_records, self.num_items,
+                    self.test_data = DKTDataset(q_records, a_records, rec_q_records,
+                                                rec_r_records, test_users, self.num_items,
                                                 self.max_seq_len,
                                                 min_seq_len=self.min_seq_len,
                                                 stride=self.stride,
                                                 train=False,
                                                 metric=self.metric)
-                self.init_kwargs["batch_size"] = len(self.test_data)
+                # self.init_kwargs["batch_size"] = len(self.test_data)
+                self.init_kwargs["batch_size"] = 1
                 self.test_loader = DataLoader(self.test_data, **self.init_kwargs)
             # elif self.mode == "predict":
             #     pass

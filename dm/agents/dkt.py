@@ -5,6 +5,7 @@ import numpy as np
 from tqdm import tqdm
 import shutil
 import random
+import pickle
 
 import torch
 from torch import nn
@@ -41,12 +42,14 @@ class DKTAgent(BaseAgent):
         # note that self.data_loader.train_data is same as self.data_loader.train_loader.dataset
         self.mode = config.mode
         self.metric = config.metric
+        self.fold = config.fold
 
         # config.input_dim = self.data_loader.num_items * 2 + 1
         config.output_dim = self.data_loader.num_items
         self.model = DKT(config)
 
         self.criterion = nn.BCELoss(reduction='sum')
+        # self.criterion = nn.MSELoss(reduction='sum')
         if config.optimizer == "sgd":
             self.optimizer = optim.SGD(self.model.parameters(),
                                        lr=self.config.learning_rate,
@@ -81,7 +84,8 @@ class DKTAgent(BaseAgent):
 
         # Model Loading from the latest checkpoint if not found start from scratch.
         # this loading should be after checking cuda
-        self.load_checkpoint(self.config.checkpoint_file)
+        # self.load_checkpoint(self.config.checkpoint_file)
+        self.reward_dict = {}
 
     def train(self):
         """
@@ -94,6 +98,7 @@ class DKTAgent(BaseAgent):
             self.current_epoch += 1
             if self.early_stopping():
                 break
+        self.generate_rewards()
 
     def train_one_epoch(self):
         """
@@ -107,17 +112,26 @@ class DKTAgent(BaseAgent):
         self.train_loss = 0
         train_elements = 0
         for batch_idx, data in enumerate(tqdm(self.data_loader.train_loader)):
-            interactions, pred_mask, target_answers, target_mask = data
+            user, interactions, pred_mask, target_answers, target_mask, target_rewards, \
+                pred_rec_mask = data
             interactions = interactions.to(self.device)
             pred_mask = pred_mask.to(self.device)
             target_answers = target_answers.to(self.device)
             target_mask = target_mask.to(self.device)
+            target_rewards = target_rewards.to(self.device)
+            pred_rec_mask = pred_rec_mask.to(self.device)
             self.optimizer.zero_grad()  # clear previous gradient
             # need to double check the target mask
             output = self.model(interactions)
-            label = torch.masked_select(target_answers, target_mask)
-            output = torch.masked_select(output[:, :-1, :], pred_mask)
+
+            # label = torch.masked_select(target_answers, target_mask)
+            # output = torch.masked_select(output[:, :-1, :], pred_mask)
+            # loss = self.criterion(output.float(), label.float())
+
+            label = torch.masked_select(target_rewards, target_mask)
+            output = torch.masked_select(output[:, :-1, :], pred_rec_mask)
             loss = self.criterion(output.float(), label.float())
+
             self.train_loss += loss.item()
             train_elements += target_mask.int().sum()
             loss.backward()  # compute the gradient
@@ -145,18 +159,62 @@ class DKTAgent(BaseAgent):
         true_labels = []
         with torch.no_grad():
             for data in self.data_loader.test_loader:
-                interactions, pred_mask, target_answers, target_mask = data
+                users, interactions, pred_mask, target_answers, target_mask, target_rewards, \
+                    pred_rec_mask = data
                 interactions = interactions.to(self.device)
                 pred_mask = pred_mask.to(self.device)
                 target_answers = target_answers.to(self.device)
                 target_mask = target_mask.to(self.device)
+                target_rewards = target_rewards.to(self.device)
+                pred_rec_mask = pred_rec_mask.to(self.device)
                 output = self.model(interactions)
-                output = torch.masked_select(output[:, :-1, :], pred_mask)
-                label = torch.masked_select(target_answers, target_mask)
+
+                # output = torch.masked_select(output[:, :-1, :], pred_mask)
+                # label = torch.masked_select(target_answers, target_mask)
+                # test_loss += self.criterion(output.float(), label.float()).item()
+
+                label = torch.masked_select(target_rewards, target_mask)
+                output = torch.masked_select(output[:, :-1, :], pred_rec_mask)
                 test_loss += self.criterion(output.float(), label.float()).item()
+
                 pred_labels.extend(output.tolist())
                 true_labels.extend(label.tolist())
         self.track_best(true_labels, pred_labels)
+
+    def generate_rewards(self):
+        """
+        One cycle of model validation
+        :return:
+        """
+        self.model.eval()
+        with torch.no_grad():
+            for data in self.data_loader.test_loader:
+                users, interactions, pred_mask, target_answers, target_mask, target_rewards, \
+                    pred_rec_mask = data
+                interactions = interactions.to(self.device)
+                pred_mask = pred_mask.to(self.device)
+                target_answers = target_answers.to(self.device)
+                target_mask = target_mask.to(self.device)
+                target_rewards = target_rewards.to(self.device)
+                pred_rec_mask = pred_rec_mask.to(self.device)
+                output = self.model(interactions)
+                print(pred_mask.shape)
+                print(target_mask.shape)
+                print(output.shape)
+                print(target_mask)
+                output_mask = torch.squeeze(target_mask)
+                output_mask = torch.cat((output_mask, torch.tensor([False])))
+                print(output_mask)
+                rewards = output[0, output_mask, :]
+                print(output.shape)
+                user = users[0]
+                if user not in self.reward_dict:
+                    self.reward_dict[user] = rewards
+                else:
+                    self.reward_dict[user] = np.concatenate((self.reward_dict[user], rewards),
+                                                            axis=0)
+
+        pickle.dump(self.reward_dict, open("fold_{}_rewards.pkl".format(self.fold), "wb"))
 
     def predict(self, q_list, a_list):
         # padding all zeros on the left
